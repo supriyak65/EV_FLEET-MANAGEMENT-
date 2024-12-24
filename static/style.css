@@ -1,0 +1,105 @@
+body {
+  background: linear-gradient(to right, #5867f2, #944efb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 350px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.container input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.container button {
+  background: linear-gradient(to right, #5867f2, #944efb);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.container button:hover {
+  background: linear-gradient (to right, #944efb, #5867f2);
+}
+
+.container p {
+  text-align: center;
+  color: #666;
+}
+
+.container p a {
+  color: #5867f2;
+  text-decoration: none;
+}
+
+.container p a:hover {
+  text-decoration: underline;
+}
+
+header{
+  background: linear-gradient(90deg, #008080, #00a5a5);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  padding-top: 70px; /* Add padding to prevent content from overlapping the fixed header */
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+

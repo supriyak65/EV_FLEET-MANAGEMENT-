@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Optimization Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Route Optimization Results</h1>
+    <p><strong>Fastest Route:</strong> <a href="{{ fastest_route_url }}" target="_blank">Open in Google Maps</a></p>
+    <h2>Charging Stations in Range</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Charger Type</th>
+                <th>Distance (km)</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for station in stations_in_range %}
+            <tr>
+                <td>{{ station.name }}</td>
+                <td>{{ station.address }}</td>
+                <td>{{ station.charger_type }}</td>
+                <td>{{ "%.2f" | format(station.distance) }}</td>
+                <td>{{ station.latitude }}</td>
+                <td>{{ station.longitude }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

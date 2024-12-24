@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Alerts Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+
+        header {
+            background-color: #4ca1af;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Header navigation links */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover effects */
+        nav a:hover {
+            background-color: #1abc9c;
+            transform: translateY(-2px);
+        }
+
+        /* Active link styling */
+        nav a.active {
+            background-color: #2980b9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Prevent the active link from being affected by hover */
+        nav a.active:hover {
+            background-color: #2980b9;
+            transform: none;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-bar {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-summary {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .summary-card h3 {
+            margin: 0 0 10px;
+            color: #2c3e50;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .filter-section select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .alert-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .alert-card {
+            background: #f9f9f9;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-card h4 {
+            margin: 0 0 10px;
+        }
+
+        .priority-high {
+            color: red;
+            font-weight: bold;
+        }
+
+        .priority-medium {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .priority-low {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Maintenance Alerts Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('Home') }}" class="active">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status') }}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status')}}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behavior</a>
+            <a href="{{ url_for('maintenance_alerts') }}">Maintenance Alerts</a>
+            <a href="{{ url_for('dashboard') }}">Cost And Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <div class="dashboard">
+        <!-- Notification Section -->
+        <div class="notification-bar">
+            🚨 High Priority Alert: Oil Change Due for EV-001!
+        </div>
+
+        <!-- Dashboard Summary -->
+        <div class="dashboard-summary">
+            <div class="summary-card">
+                <h3>Total Alerts</h3>
+                <p>5</p>
+            </div>
+            <div class="summary-card">
+                <h3>High Priority</h3>
+                <p class="priority-high">2</p>
+            </div>
+            <div class="summary-card">
+                <h3>Medium Priority</h3>
+                <p class="priority-medium">2</p>
+            </div>
+            <div class="summary-card">
+                <h3>Low Priority</h3>
+                <p class="priority-low">1</p>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="filter">Filter Alerts:</label>
+            <select id="filter" onchange="filterAlerts()">
+                <option value="all">All</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+        </div>
+
+        <!-- Alert Cards -->
+        <div class="alert-container" id="alert-container">
+            <div class="alert-card" data-priority="high">
+                <h4>Vehicle: EV-001</h4>
+                <p><strong>Alert:</strong> Oil Change</p>
+                <p><strong>Description:</strong> Last change was 10,000 km ago.</p>
+                <p><strong>Priority:</strong> <span class="priority-high">High</span></p>
+                <p><strong>Due Date:</strong> 2024-12-25</p>
+            </div>
+            <div class="alert-card" data-priority="medium">
+                <h4>Vehicle: EV-002</h4>
+                <p><strong>Alert:</strong> Tire Rotation</p>
+                <p><strong>Description:</strong> Recommended at 5,000 km.</p>
+                <p><strong>Priority:</strong> <span class="priority-medium">Medium</span></p>
+                <p><strong>Due Date:</strong> 2024-12-30</p>
+            </div>
+            <div class="alert-card" data-priority="low">
+                <h4>Vehicle: EV-003</h4>
+                <p><strong>Alert:</strong> Brake Check</p>
+                <p><strong>Description:</strong> Routine maintenance check.</p>
+                <p><strong>Priority:</strong> <span class="priority-low">Low</span></p>
+                <p><strong>Due Date:</strong> 2025-01-15</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterAlerts() {
+            const filter = document.getElementById("filter").value;
+            const alertCards = document.querySelectorAll(".alert-card");
+
+            alertCards.forEach(card => {
+                if (filter === "all" || card.dataset.priority === filter) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

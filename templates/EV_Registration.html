@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Vehicle Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #2c3e50, #4ca1af);
+        color: #1d1b1b;
+        padding: 20px;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+        background: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .status-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #1c2833;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .header-a{
+        background-color: #4ca1af;
+        text-align: center;
+        padding: 20px 10px;
+        border-bottom: 2px solid #2c3e50;
+    }
+
+    .header-a h1 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    
+    .content {
+        padding: 20px;
+    }
+
+    .status-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .status-card {
+        background-color: #34495e;
+        width: 45%;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .status-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .status-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .status-card p {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+
+    .status-card .status-value {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #4ca1af;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #19cbe2;
+    }
+
+    .footer a {
+        color: #4ca1af;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+   
+</style>
+</head>
+
+
+<body>
+    <header>
+        <h1>EV Management System</h1>
+        <nav>
+            <a href="{{ url_for('Home') }}" class="active">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status') }}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status')}}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behaviour</a>
+            <a href="{{ url_for('dashboard')}}">Cost and Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <form method="POST" action="/EV_Registration" id="evRegistrationForm">
+
+        <h1>EV REGISTRATION</h1>
+
+            <label for="ownerName">Owner's Name:</label>
+            <input type="text" id="owner_name" name="owner_name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="evName">EV Name:</label>
+            <input type="text" id="ev_name" name="ev_name" required>
+
+            <label for="vehicleModel">EV Model:</label>
+            <input type="text" id="ev_model" name="ev_model" required>
+
+            <label for="year">Year of Manufacture:</label>
+            <input type="number" id="year" name="year" required min="1886" max="2024">
+
+            <label for="licensePlate">License Plate Number:</label>
+            <input type="text" id="licensePlate" name="licensePlate" required>
+
+            <button type="submit">Register EV</button>
+        </form>
+    </div>
+</body>
+</html>

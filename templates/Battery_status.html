@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+
+        header {
+            background-color: #4ca1af;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2c3e50;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #4ca1af;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            box-shadow: 0 0 5px rgba(76, 161, 175, 0.8);
+            border-color: #4ca1af;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4ca1af;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #2c3e50;
+        }
+
+        .result {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #4ca1af;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Battery Health Predictor</h1>
+        <nav>
+            <a href="{{ url_for('Home') }}">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status') }}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status') }}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behaviour</a>
+            <a href="{{ url_for('dashboard') }}">Cost and Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <form id="battery-status-form" method="POST" action="/Battery_status">
+            <h2>Battery Status</h2>
+            <div class="form-group">
+                <label for="voltage">Voltage (V):</label>
+                <input type="number" id="voltage" name="Voltage" placeholder="Enter Voltage" required>
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" id="temperature" name="Temperature" placeholder="Enter Temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="resistance">Internal Resistance (Ω):</label>
+                <input type="number" id="resistance" name="Internal_resistance" placeholder="Enter Resistance" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% elif error_text %}
+        <div class="result">
+            <p style="color: red;">{{ error_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

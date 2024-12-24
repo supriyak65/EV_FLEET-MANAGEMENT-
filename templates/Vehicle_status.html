@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Vehicle Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    
+
+        .status-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #1c2833;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header-a{
+            background-color: #4ca1af;
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        .header-a h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        
+        .content {
+            padding: 20px;
+        }
+
+        .status-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .status-card {
+            background-color: #34495e;
+            width: 45%;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .status-card p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .status-card .status-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4ca1af;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .footer a {
+            color: #4ca1af;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>EV Management System</h1>
+        <nav>
+            <a href="{{ url_for('Home') }}">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status')}}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status')}}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behaviour</a>
+            <a href="{{ url_for('dashboard') }}">Cost and Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+    <div class="status-container">
+
+        <div class="header-a">
+            <h1>EV Vehicle Status</h1>
+        </div>
+        <div class="content">
+            <div class="status-section">
+                <div class="status-card">
+                    <h3>Battery Status</h3>
+                    <p>Current Charge:</p>
+                    <p class="status-value">85%</p>
+                </div>
+                <div class="status-card">
+                    <h3>Range</h3>
+                    <p>Estimated Range:</p>
+                    <p class="status-value">320 km</p>
+                </div>
+                <div class="status-card">
+                    <h3>Charging Status</h3>
+                    <p>Charger Connected:</p>
+                    <p class="status-value">Yes</p>
+                </div>
+                <div class="status-card">
+                    <h3>Health Status</h3>
+                    <p>Battery Health:</p>
+                    <p class="status-value">Good</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

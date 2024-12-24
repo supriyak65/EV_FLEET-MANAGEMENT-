@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, #008080, #00a5a5);
+            color: white;
+            padding: 12px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .container {
+            padding-top: 70px; /* Add padding to prevent content from overlapping the fixed header */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Welcome Section */
+        .welcome {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .welcome h2 {
+            font-size: 2rem;
+            color: #008080;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(145deg, #ffffff, #f0f0f3);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            flex: 1;
+            margin: 15px;
+            max-width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -6px -6px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .stat-box h3 {
+            font-size: 1.2rem;
+            color: #00a5a5;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(145deg, #ffffff, #f0f0f3);
+            border-radius: 15px;
+            box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .dashboard h2 {
+            text-align: center;
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .chart {
+            flex: 1;
+            min-width: 300px;
+            margin: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background: #008080;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>EV Management System</h1>
+        <nav>
+            <a href="" class="active">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status') }}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status')}}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behavior</a>
+            <a href="{{ url_for('maintenance_alerts') }}">Maintenance Alerts</a>
+            <a href="{{ url_for('dashboard') }}">Cost And Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="welcome">
+            <h2>Welcome to EV Management System</h2>
+        </div>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Total EVs</h3>
+                <p>250</p>
+            </div>
+            <div class="stat-box">
+                <h3>Active EVs</h3>
+                <p>200</p>
+            </div>
+            <div class="stat-box">
+                <h3>Saved Cost</h3>
+                <p>$15,000</p>
+            </div>
+            <div class="stat-box">
+                <h3>Consumption</h3>
+                <p>20,000 kWh</p>
+            </div>
+            <div class="stat-box">
+                <h3>CO2 Reduced</h3>
+                <p>50 Tons</p>
+            </div>
+        </div>
+        <div class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="chart-container">
+                <div class="chart">
+                    <canvas id="yearlyUsageChart"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="energyConsumptionChart"style="width: 200px; height: 200px;"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="monthlySavingsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Chart.js Bar Chart - Yearly Usage
+        const ctx1 = document.getElementById('yearlyUsageChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Yearly EV Usage (in hours)',
+                    data: [120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+
+        // Chart.js Pie Chart - Energy Consumption
+        const ctx2 = document.getElementById('energyConsumptionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Charging', 'Idle', 'Driving'],
+                datasets: [{
+                    data: [60, 20, 20],
+                    backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, 
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+
+        // Chart.js Line Chart - Monthly Savings
+        const ctx3 = document.getElementById('monthlySavingsChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Monthly Savings (in $)',
+                    data: [500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+

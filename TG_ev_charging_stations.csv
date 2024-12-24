@@ -1,0 +1,101 @@
+Name,Latitude,Longitude,Address,Charger Type
+ChargePoint Station A,17.385044,78.486671,"HITEC City, Hyderabad, Telangana",Level 2
+PowerCharge Station B,17.5149,78.6247,"Banjara Hills, Hyderabad, Telangana",DC Fast
+EV Station C,17.7209,78.4733,"Madhapur, Hyderabad, Telangana",Level 2
+Tesla Supercharger,17.3585,78.5203,"Near Gachibowli, Hyderabad, Telangana",DC Fast
+GreenCharge Station D,17.3949,78.4442,"Kondapur, Hyderabad, Telangana",Level 2
+Charging Station 6,16.583993,77.895334,"LB Nagar, Telangana",DC Fast
+Charging Station 7,17.455282,77.656302,"Mahbubnagar, Telangana",DC Fast
+Charging Station 8,16.555988,78.311713,"Warangal, Telangana",Level 2
+Charging Station 9,17.174683,78.276911,"Begumpet, Telangana",DC Fast
+Charging Station 10,17.369647,77.988102,"Warangal, Telangana",Level 2
+Charging Station 11,16.580399,77.747611,"Siddipet, Telangana",DC Fast
+Charging Station 12,16.565863,77.935046,"Charminar, Telangana",DC Fast
+Charging Station 13,17.04182,78.245214,"Patancheru, Telangana",Level 2
+Charging Station 14,17.292641,77.798305,"Adilabad, Telangana",DC Fast
+Charging Station 15,16.735634,78.397267,"Nalgonda, Telangana",DC Fast
+Charging Station 16,17.313199,78.359973,"Shamirpet, Telangana",DC Fast
+Charging Station 17,16.951098,77.670642,"Charminar, Telangana",DC Fast
+Charging Station 18,16.983641,78.160903,"Nalgonda, Telangana",DC Fast
+Charging Station 19,16.780566,77.778384,"Secunderabad, Telangana",DC Fast
+Charging Station 20,16.796101,77.64215,"Patancheru, Telangana",Level 2
+Charging Station 21,17.086103,77.735284,"Adilabad, Telangana",Level 2
+Charging Station 22,16.746081,78.070278,"Nalgonda, Telangana",DC Fast
+Charging Station 23,17.317366,77.664179,"Secunderabad, Telangana",Level 2
+Charging Station 24,16.843287,77.772994,"Jubilee Hills, Telangana",Level 2
+Charging Station 25,16.614083,77.961154,"Secunderabad, Telangana",DC Fast
+Charging Station 26,16.659274,78.412435,"Dilsukhnagar, Telangana",DC Fast
+Charging Station 27,16.524727,78.407616,"Warangal, Telangana",DC Fast
+Charging Station 28,16.918495,77.848555,"Medak, Telangana",DC Fast
+Charging Station 29,17.068172,77.851615,"Adilabad, Telangana",Level 2
+Charging Station 30,16.537228,77.514969,"Jubilee Hills, Telangana",Level 2
+Charging Station 31,17.168427,77.8599,"Begumpet, Telangana",DC Fast
+Charging Station 32,16.656864,78.459086,"Karimnagar, Telangana",DC Fast
+Charging Station 33,16.812085,77.569291,"Warangal, Telangana",Level 2
+Charging Station 34,16.644238,77.863786,"Nizamabad, Telangana",Level 2
+Charging Station 35,16.811144,77.649643,"Mahbubnagar, Telangana",Level 2
+Charging Station 36,16.943772,78.385126,"Warangal, Telangana",DC Fast
+Charging Station 37,17.383512,78.479694,"LB Nagar, Telangana",DC Fast
+Charging Station 38,16.674497,77.773424,"Kukatpally, Telangana",DC Fast
+Charging Station 39,17.062863,77.809962,"Karimnagar, Telangana",DC Fast
+Charging Station 40,16.756128,78.467019,"Adilabad, Telangana",DC Fast
+Charging Station 41,17.261566,78.134217,"Begumpet, Telangana",DC Fast
+Charging Station 42,16.596988,77.546682,"Warangal, Telangana",Level 2
+Charging Station 43,17.18469,78.333865,"Karimnagar, Telangana",DC Fast
+Charging Station 44,17.216359,77.764696,"Nalgonda, Telangana",Level 2
+Charging Station 45,16.52546,78.359592,"Secunderabad, Telangana",Level 2
+Charging Station 46,17.032838,78.254351,"Malkajgiri, Telangana",DC Fast
+Charging Station 47,16.621543,78.424862,"Jubilee Hills, Telangana",Level 2
+Charging Station 48,17.326504,78.360923,"Adilabad, Telangana",DC Fast
+Charging Station 49,16.75059,78.444613,"Warangal, Telangana",Level 2
+Charging Station 50,16.770671,77.952944,"Begumpet, Telangana",Level 2
+Charging Station 51,17.442498,77.884765,"Malkajgiri, Telangana",DC Fast
+Charging Station 52,17.130778,77.549335,"Warangal, Telangana",DC Fast
+Charging Station 53,17.49276,78.243431,"Begumpet, Telangana",Level 2
+Charging Station 54,16.762398,78.136123,"Nizamabad, Telangana",Level 2
+Charging Station 55,17.306309,78.079608,"Kukatpally, Telangana",Level 2
+Charging Station 56,17.007848,78.355084,"Mahbubnagar, Telangana",DC Fast
+Charging Station 57,17.136079,77.691726,"Nizamabad, Telangana",Level 2
+Charging Station 58,16.701314,78.334755,"Shamirpet, Telangana",DC Fast
+Charging Station 59,17.28406,77.716819,"Adilabad, Telangana",DC Fast
+Charging Station 60,17.374354,78.453245,"Malkajgiri, Telangana",DC Fast
+Charging Station 61,17.248504,78.085511,"Adilabad, Telangana",DC Fast
+Charging Station 62,16.856208,77.686918,"Suryapet, Telangana",DC Fast
+Charging Station 63,17.434559,78.392952,"Shamirpet, Telangana",Level 2
+Charging Station 64,17.097639,78.387546,"Jubilee Hills, Telangana",DC Fast
+Charging Station 65,17.488789,77.606285,"Jubilee Hills, Telangana",DC Fast
+Charging Station 66,16.882258,78.383686,"Khammam, Telangana",Level 2
+Charging Station 67,16.961708,77.952947,"Malkajgiri, Telangana",Level 2
+Charging Station 68,17.361965,78.282035,"Malkajgiri, Telangana",Level 2
+Charging Station 69,17.207363,77.941127,"Khammam, Telangana",DC Fast
+Charging Station 70,16.801249,78.431003,"Malkajgiri, Telangana",Level 2
+Charging Station 71,17.124867,78.212023,"Dilsukhnagar, Telangana",Level 2
+Charging Station 72,17.476175,78.068399,"Dilsukhnagar, Telangana",DC Fast
+Charging Station 73,17.00752,78.349639,"Karimnagar, Telangana",DC Fast
+Charging Station 74,17.078598,78.343226,"Warangal, Telangana",DC Fast
+Charging Station 75,17.271595,77.571429,"Charminar, Telangana",DC Fast
+Charging Station 76,16.537703,78.109539,"Nizamabad, Telangana",Level 2
+Charging Station 77,17.289712,77.887305,"Patancheru, Telangana",DC Fast
+Charging Station 78,16.776558,78.188662,"Shamirpet, Telangana",Level 2
+Charging Station 79,17.270949,78.018009,"Begumpet, Telangana",DC Fast
+Charging Station 80,17.141358,77.787074,"Secunderabad, Telangana",DC Fast
+Charging Station 81,17.078578,78.467211,"Patancheru, Telangana",Level 2
+Charging Station 82,17.282006,78.280594,"Warangal, Telangana",Level 2
+Charging Station 83,17.395532,78.222467,"Karimnagar, Telangana",DC Fast
+Charging Station 84,16.891704,78.254913,"Khammam, Telangana",DC Fast
+Charging Station 85,16.939437,77.81218,"Adilabad, Telangana",DC Fast
+Charging Station 86,17.135068,78.472113,"Kukatpally, Telangana",Level 2
+Charging Station 87,16.624487,77.720916,"Nalgonda, Telangana",DC Fast
+Charging Station 88,17.163555,77.66696,"Suryapet, Telangana",DC Fast
+Charging Station 89,17.021246,78.194744,"Dilsukhnagar, Telangana",DC Fast
+Charging Station 90,17.191721,77.848117,"Khammam, Telangana",Level 2
+Charging Station 91,17.412645,78.145167,"Medak, Telangana",Level 2
+Charging Station 92,16.602856,77.506505,"Dilsukhnagar, Telangana",DC Fast
+Charging Station 93,16.621029,78.236297,"Kukatpally, Telangana",Level 2
+Charging Station 94,17.478438,78.066351,"Patancheru, Telangana",Level 2
+Charging Station 95,16.504148,77.929238,"Siddipet, Telangana",Level 2
+Charging Station 96,17.096696,77.683887,"Suryapet, Telangana",DC Fast
+Charging Station 97,16.863114,77.625361,"Karimnagar, Telangana",Level 2
+Charging Station 98,16.763766,77.631792,"Warangal, Telangana",DC Fast
+Charging Station 99,16.70724,78.273356,"Khammam, Telangana",DC Fast
+Charging Station 100,16.717139,78.077233,"Dilsukhnagar, Telangana",DC Fast

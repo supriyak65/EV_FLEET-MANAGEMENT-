@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Behavior - EV Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, #008080, #00a5a5);
+            color: white;
+            padding: 12px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .container {
+            padding-top: 70px; /* Add padding to prevent content from overlapping the fixed header */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Page Content Styles */
+        .welcome {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .welcome h2 {
+            font-size: 2rem;
+            color: #008080;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(145deg, #ffffff, #f0f0f3);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            flex: 1;
+            margin: 15px;
+            max-width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -6px -6px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .stat-box h3 {
+            font-size: 1.2rem;
+            color: #00a5a5;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Driver Behavior Table Section */
+        .table-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(145deg, #ffffff, #f0f0f3);
+            border-radius: 15px;
+            box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .table-container h2 {
+            text-align: center;
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background: #008080;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EV Management System</h1>
+        <nav>
+            <a href="{{ url_for('Home') }}" class="active">Home</a>
+            <a href="{{ url_for('EV_Registration') }}">EV Registration</a>
+            <a href="{{ url_for('Vehicle_status') }}">Vehicle Status</a>
+            <a href="{{ url_for('Battery_status')}}">Battery Status</a>
+            <a href="{{ url_for('Route_Optimization') }}">Route Optimization</a>
+            <a href="{{ url_for('driver_behaviour') }}">Driver Behavior</a>
+            <a href="{{ url_for('maintenance_alerts') }}">Maintenance Alerts</a>
+            <a href="{{ url_for('dashboard') }}">Cost And Energy Consumption</a>
+            <a href="{{ url_for('Logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="welcome">
+            <h2>Driver Behavior Summary</h2>
+        </div>
+        
+        <div class="table-container">
+            <h2>Driver Behavior Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Driver Name</th>
+                        <th>Speeding (mph over limit)</th>
+                        <th>Harsh Acceleration (incidents)</th>
+                        <th>Idle Time (minutes)</th>
+                        <th>Distance Driven (miles)</th>
+                        <th>Fuel Consumption (gallons)</th>
+                        <th>Acceleration Time (seconds)</th>
+                        <th>Behavior Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for driver in drivers %}
+                    <tr>
+                        <td>{{ driver.driver_name }}</td>
+                        <td>{{ driver.speeding }}</td>
+                        <td>{{ driver.harsh_acceleration }}</td>
+                        <td>{{ driver.idle_time }}</td>
+                        <td>{{ driver.distance_driven }}</td>
+                        <td>{{ driver.fuel_consumption }}</td>
+                        <td>{{ driver.acceleration_time }}</td>
+                        <td>{{ driver.behavior_score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EV Management System</p>
+    </footer>
+</body>
+</html>
